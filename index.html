@@ -156,7 +156,17 @@
             </li>
           </ul>
         </nav>
+
+        <footer class="card__footer">
+          <p>
+            &copy; <span id="year"></span> Mother Meera. All rights reserved.
+          </p>
+        </footer>
       </main>
     </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
