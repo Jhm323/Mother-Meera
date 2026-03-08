@@ -161,3 +161,94 @@ body {
   color: var(--clr-text-muted);
   letter-spacing: 0.06em;
 }
+
+/* Link list */
+.link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Link button */
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle left-edge accent bar */
+.link-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: var(--radius-btn) 0 0 var(--radius-btn);
+  opacity: 0.85;
+  transition: width var(--transition);
+}
+
+.link-btn:hover,
+.link-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.13);
+  outline: none;
+}
+
+.link-btn:hover::before,
+.link-btn:focus-visible::before {
+  width: 6px;
+}
+
+.link-btn:active {
+  transform: translateY(0);
+}
+
+/* Icon circle */
+.link-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.link-btn__label {
+  flex: 1;
+}
+
+.link-btn__arrow {
+  font-size: 0.75rem;
+  opacity: 0.45;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.link-btn:hover .link-btn__arrow,
+.link-btn:focus-visible .link-btn__arrow {
+  opacity: 0.8;
+  transform: translateX(3px);
+}
