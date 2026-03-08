@@ -98,27 +98,23 @@ Note: You no longer need to manually specify icons or platform colors. The site 
 
 --Adding a New Link
 
-Add a new object to the LINKS array with label and url.
-
-The platform, icon, button color, and animation are automatically applied.
+Add a new object to the LINKS array with label and url; The platform, icon, button color, and animation are automatically applied.
 
 --Customization
-Change Colors
-
-Edit CSS variables in styles.css:
+Change Colors: Edit CSS variables in styles.css:
 
 :root {
   --clr-bg-from: #1a0a2e;
   --clr-bg-to: #2e1a4a;
   --clr-gold: #f0c060;
 }
-Add New Platform Styles
 
-For unsupported platforms, add a new button color:
+Add New Platform Styles; For unsupported platforms, add a new button color:
 
 .link-btn--tiktok::before {
   background: #000000;
 }
+
 ## Analytics
 
 Tracks clicks on social links
@@ -142,29 +138,11 @@ linkList.addEventListener("click", (event) => {
 
 Static fallback links work even if JavaScript is disabled
 
-When JS loads:
-
-Fallback links are cleared
-
-Animated, styled buttons are rendered dynamically
-
-Icons, platform colors, and staggered animation are applied
-
-Users without JS still have a fully functional link list
+When JS loads, Fallback links are cleared, Animated, styled buttons are rendered dynamically. Icons, platform colors, and staggered animation are applied. Users without JS still have a fully functional link list
 
 ## Deployment
 
-Fully static — deployable to:
-
--GitHub Pages
-
--Netlify
-
--Vercel
-
--Cloudflare Pages
-
-Any static hosting service
+Fully static — deployable to: Any static hosting service
 
 ## Accessibility
 
