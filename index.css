@@ -6,3 +6,27 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  /* Colour palette – warm gold / ivory / deep plum */
+  --clr-bg-from: #1a0a2e;
+  --clr-bg-to: #2e1a4a;
+  --clr-card-bg: rgba(255, 255, 255, 0.06);
+  --clr-card-border: rgba(255, 215, 140, 0.25);
+  --clr-gold: #f0c060;
+  --clr-gold-light: #ffe49a;
+  --clr-text: #f5ecd7;
+  --clr-text-muted: #c4aed0;
+  --clr-circle: rgba(240, 192, 96, 0.08);
+
+  /* Button colours */
+  --clr-website: #7c5cbf;
+  --clr-youtube: #c0392b;
+  --clr-facebook: #1877f2;
+  --clr-instagram: #c13584;
+  --clr-twitter: #14171a;
+  --clr-spotify: #1db954;
+
+  --radius-btn: 14px;
+  --transition: 0.25s ease;
+}
