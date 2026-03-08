@@ -32,29 +32,32 @@ document
   .setAttribute("content", SITE.description);
 
 // Render links
+function createLinkTemplate(link) {
+  return `
+    <li>
+      <a
+        class="link-btn link-btn--${link.brand}"
+        href="${link.url}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="link-btn__icon">
+          <i class="fa-solid ${link.icon}"></i>
+        </span>
 
-LINKS.forEach((link) => {
-  const listItem = document.createElement("li");
-  const anchor = document.createElement("a");
+        <span class="link-btn__label">
+          ${link.label}
+        </span>
 
-  anchor.className = `link-btn link-btn--${link.brand}`;
-  anchor.href = link.url;
-  anchor.target = "_blank";
-  anchor.rel = "noopener noreferrer";
-
-  anchor.innerHTML = `
-    <span class="link-btn__icon">
-      <i class="fa-solid ${link.icon}"></i>
-    </span>
-    <span class="link-btn__label">${link.label}</span>
-    <span class="link-btn__arrow">
-      <i class="fa-solid fa-chevron-right"></i>
-    </span>
+        <span class="link-btn__arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
+      </a>
+    </li>
   `;
+}
 
-  listItem.appendChild(anchor);
-  linkList.appendChild(listItem);
-});
+linkList.innerHTML = LINKS.map(createLinkTemplate).join("");
 
 // Set current year
 year.textContent = new Date().getFullYear();
