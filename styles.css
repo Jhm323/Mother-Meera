@@ -48,6 +48,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Hide JS Links when Main.js runs */
+.no-js .link-list a {
+  display: block;
+  padding: 12px;
+  color: var(--clr-text);
+  text-decoration: underline;
+}
+
+/* Enable JavaScript */
+html:not(.no-js) .link-list a {
+  text-decoration: none;
+}
+
 /* Background decorative circles */
 .page-wrapper {
   position: relative;

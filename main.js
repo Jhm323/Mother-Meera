@@ -1,3 +1,5 @@
+document.documentElement.classList.remove("no-js");
+
 import { LINKS, PROFILE, SITE } from "./constants.js";
 
 // Platform map
@@ -84,6 +86,8 @@ function createLinkTemplate(link, index) {
         target="_blank"
         rel="noopener noreferrer"
                 style="animation-delay: ${delay}s"
+                  data-link-label="${link.label}"
+
 
       >
         <span class="link-btn__icon">
@@ -102,9 +106,30 @@ function createLinkTemplate(link, index) {
   `;
 }
 
+// Clear fallback links before rendering dynamic links
+linkList.innerHTML = "";
+
+// Render animated links
 linkList.innerHTML = LINKS.map((link, index) =>
   createLinkTemplate(link, index),
 ).join("");
 
 // Set current year
 year.textContent = new Date().getFullYear();
+
+// Click Listener
+linkList.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+
+  if (!link) return;
+
+  const label = link.dataset.linkLabel;
+
+  if (window.plausible) {
+    plausible("Social Link Click", {
+      props: {
+        link: label,
+      },
+    });
+  }
+});
