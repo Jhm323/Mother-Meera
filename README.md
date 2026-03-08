@@ -54,7 +54,6 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 ## Project Structure
 
 Mother-Meera/
-│
 ├── index.html # Main webpage with fallback links
 ├── styles.css # Styling, layout, and animations
 ├── constants.js # Profile info and social links
@@ -92,13 +91,13 @@ export const LINKS = [
 
 Note: You no longer need to manually specify icons or platform colors. The site detects the platform from the URL and applies the correct icon, color, and animation automatically.
 
-Adding a New Link
+--Adding a New Link
 
 Add a new object to the LINKS array with label and url.
 
 The platform, icon, button color, and animation are automatically applied.
 
-Customization
+--Customization
 Change Colors
 
 Edit CSS variables in styles.css:
@@ -161,16 +160,6 @@ Fully static — deployable to:
 -Cloudflare Pages
 
 Any static hosting service
-
-Example GitHub Pages workflow:
-
-Push the project to a repository
-
-Go to Settings → Pages
-
-Select the main branch
-
-Your site is live
 
 ## Accessibility
 
