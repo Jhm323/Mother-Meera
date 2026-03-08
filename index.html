@@ -30,6 +30,31 @@
       <!-- Background decorative elements -->
       <div class="bg-circle bg-circle--top"></div>
       <div class="bg-circle bg-circle--bottom"></div>
+      <main class="card">
+        <!-- Profile section -->
+        <header class="profile">
+          <div class="avatar-ring">
+            <img
+              class="avatar"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mother_Meera.jpg/320px-Mother_Meera.jpg"
+              alt="Mother Meera"
+              onerror="
+                this.style.display = 'none';
+                this.parentElement.querySelector(
+                  '.avatar-fallback',
+                ).style.display = 'flex';
+              "
+            />
+            <div class="avatar-fallback" aria-hidden="true">
+              <i class="fa-solid fa-om"></i>
+            </div>
+          </div>
+          <h1 class="profile__name">Mother Meera</h1>
+          <p class="profile__tagline">
+            Divine Mother &nbsp;·&nbsp; Spiritual Teacher
+          </p>
+        </header>
+      </main>
     </div>
   </body>
 </html>
