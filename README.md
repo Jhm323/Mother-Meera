@@ -54,11 +54,12 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 ## Project Structure
 
 Mother-Meera/
-├── index.html # Main webpage with fallback links
-├── styles.css # Styling, layout, and animations
-├── constants.js # Profile info and social links
-├── main.js # Logic: DOM caching, dynamic rendering, analytics, progressive enhancement
-└── README.md # This file
+
+- index.html # Main webpage with fallback links
+  -styles.css # Styling, layout, and animations
+  -constants.js # Profile info and social links
+  -main.js # Logic: DOM caching, dynamic rendering, analytics, progressive enhancement
+  -README.md # This file
 
 ---
 
