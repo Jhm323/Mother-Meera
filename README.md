@@ -51,22 +51,6 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 
 ---
 
-## Project Structure
-
-Mother-Meera/
-├── index.html # Main webpage (includes static fallback links for progressive enhancement)
-├── styles.css # Styling, layout, animations, and color variables
-├── constants.js # Profile info and social links (data-driven configuration)
-├── main.js # Core logic:
-│ • DOM caching
-│ • Dynamic link rendering
-│ • Staggered animations
-│ • Click analytics
-│ • Progressive enhancement
-└── README.md # Project documentation (this file)
-
----
-
 ## Configuration
 
 All editable content is stored in **`constants.js`**.
