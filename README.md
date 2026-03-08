@@ -78,6 +78,8 @@ export const LINKS = [
   { label: "Instagram", url: "https://instagram.com/mothermeera" }
 ];
 
+--
+
 Note: You no longer need to manually specify icons or platform colors. The site detects the platform from the URL and applies the correct icon, color, and animation automatically.
 
 --Adding a New Link
