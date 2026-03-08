@@ -47,3 +47,33 @@ body {
   padding: 2rem 1rem;
   overflow-x: hidden;
 }
+
+/* Background decorative circles */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-circle {
+  position: fixed;
+  border-radius: 50%;
+  background: var(--clr-circle);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-circle--top {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -150px;
+}
+
+.bg-circle--bottom {
+  width: 500px;
+  height: 500px;
+  bottom: -180px;
+  left: -180px;
+}
