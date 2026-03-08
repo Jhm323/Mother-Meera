@@ -252,3 +252,58 @@ body {
   opacity: 0.8;
   transform: translateX(3px);
 }
+
+/* Per-platform colours */
+.link-btn--website::before {
+  background: var(--clr-website);
+}
+.link-btn--youtube::before {
+  background: var(--clr-youtube);
+}
+.link-btn--facebook::before {
+  background: var(--clr-facebook);
+}
+.link-btn--instagram::before {
+  background: var(--clr-instagram);
+}
+.link-btn--twitter::before {
+  background: var(--clr-twitter);
+}
+.link-btn--spotify::before {
+  background: var(--clr-spotify);
+}
+
+.link-btn--website .link-btn__icon {
+  background: rgba(124, 92, 191, 0.25);
+  color: #b39ddb;
+}
+.link-btn--youtube .link-btn__icon {
+  background: rgba(192, 57, 43, 0.25);
+  color: #ef9a9a;
+}
+.link-btn--facebook .link-btn__icon {
+  background: rgba(24, 119, 242, 0.25);
+  color: #90caf9;
+}
+.link-btn--instagram .link-btn__icon {
+  background: rgba(193, 53, 132, 0.25);
+  color: #f48fb1;
+}
+.link-btn--twitter .link-btn__icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+.link-btn--spotify .link-btn__icon {
+  background: rgba(29, 185, 84, 0.25);
+  color: #a5d6a7;
+}
+
+/* Footer */
+.card__footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  opacity: 0.6;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
