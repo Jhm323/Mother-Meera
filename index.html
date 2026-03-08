@@ -36,7 +36,7 @@
           <div class="avatar-ring">
             <img
               class="avatar"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mother_Meera.jpg/320px-Mother_Meera.jpg"
+              id="profile-avatar"
               alt="Mother Meera"
               onerror="
                 this.style.display = 'none';
@@ -49,123 +49,68 @@
               <i class="fa-solid fa-om"></i>
             </div>
           </div>
-          <h1 class="profile__name">Mother Meera</h1>
-          <p class="profile__tagline">
+          <h1 class="profile__name" id="profile-name">Mother Meera</h1>
+          <p class="profile__tagline" id="profile-tagline">
             Divine Mother &nbsp;·&nbsp; Spiritual Teacher
           </p>
         </header>
 
         <!-- Links section -->
         <nav aria-label="Social media links">
-          <ul class="link-list">
-            <li>
-              <a
-                class="link-btn link-btn--website"
-                href="https://www.mothermeera.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-solid fa-globe"></i
-                ></span>
-                <span class="link-btn__label">Official Website</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="link-btn link-btn--youtube"
-                href="https://www.youtube.com/@MotherMeeraOfficial"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-brands fa-youtube"></i
-                ></span>
-                <span class="link-btn__label">YouTube</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="link-btn link-btn--facebook"
-                href="https://www.facebook.com/mothermeera"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></span>
-                <span class="link-btn__label">Facebook</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="link-btn link-btn--instagram"
-                href="https://www.instagram.com/mothermeeraofficial"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-brands fa-instagram"></i
-                ></span>
-                <span class="link-btn__label">Instagram</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="link-btn link-btn--twitter"
-                href="https://x.com/MotherMeeraOrg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-brands fa-x-twitter"></i
-                ></span>
-                <span class="link-btn__label">X&thinsp;/&thinsp;Twitter</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="link-btn link-btn--spotify"
-                href="https://open.spotify.com/artist/6YpQu19Ar6T8m1VHkxT5oo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="link-btn__icon"
-                  ><i class="fa-brands fa-spotify"></i
-                ></span>
-                <span class="link-btn__label">Spotify – Sacred Music</span>
-                <span class="link-btn__arrow"
-                  ><i class="fa-solid fa-chevron-right"></i
-                ></span>
-              </a>
-            </li>
+          <ul class="link-list" id="link-list">
+            <!-- Links will be injected here by JavaScript -->
           </ul>
         </nav>
 
         <footer class="card__footer">
           <p>
-            &copy; <span id="year"></span> Mother Meera. All rights reserved.
+            &copy; <span id="year"></span>
+            <span id="copyright-name">Mother Meera</span>. All rights reserved.
           </p>
         </footer>
       </main>
     </div>
 
-    <script>
+    <script type="module">
+      import { LINKS, PROFILE, SITE } from "./constants.js";
+
+      // Set profile information
+      document.getElementById("profile-avatar").src = PROFILE.avatarUrl;
+      document.getElementById("profile-avatar").alt = PROFILE.avatarAlt;
+      document.getElementById("profile-name").textContent = PROFILE.name;
+      document.getElementById("profile-tagline").innerHTML =
+        PROFILE.tagline.replace(/·/g, "&nbsp;·&nbsp;");
+      document.getElementById("copyright-name").textContent =
+        SITE.copyrightName;
+
+      // Set page title and meta description
+      document.title = SITE.title;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute("content", SITE.description);
+
+      // Render links
+      const linkList = document.getElementById("link-list");
+      LINKS.forEach((link) => {
+        const listItem = document.createElement("li");
+        const anchor = document.createElement("a");
+
+        anchor.className = `link-btn link-btn--${link.brand}`;
+        anchor.href = link.url;
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+
+        anchor.innerHTML = `
+          <span class="link-btn__icon"><i class="fa-solid ${link.icon}"></i></span>
+          <span class="link-btn__label">${link.label}</span>
+          <span class="link-btn__arrow"><i class="fa-solid fa-chevron-right"></i></span>
+        `;
+
+        listItem.appendChild(anchor);
+        linkList.appendChild(listItem);
+      });
+
+      // Set current year
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
