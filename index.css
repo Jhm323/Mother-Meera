@@ -307,3 +307,20 @@ body {
   padding-top: 0.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
+
+/* Responsive */
+@media (max-width: 400px) {
+  .card {
+    padding: 2rem 1.25rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .profile__name {
+    font-size: 1.5rem;
+  }
+
+  .avatar-ring {
+    width: 90px;
+    height: 90px;
+  }
+}
