@@ -6,43 +6,31 @@ export const LINKS = [
     id: "website",
     label: "Official Website",
     url: "https://www.mothermeerausa.org",
-    icon: "fa-globe",
-    brand: "website",
   },
   {
     id: "youtube",
     label: "YouTube",
     url: "https://www.youtube.com/@MotherMeeraLive",
-    icon: "fa-brands fa-youtube",
-    brand: "youtube",
   },
   {
     id: "facebook",
     label: "Facebook",
     url: "https://www.facebook.com/mothermeera",
-    icon: "fa-brands fa-facebook-f",
-    brand: "facebook",
   },
   {
     id: "instagram",
     label: "Instagram",
     url: "https://www.instagram.com/mothermeera.usa/",
-    icon: "fa-brands fa-instagram",
-    brand: "instagram",
   },
   {
     id: "twitter",
     label: "X / Twitter",
     url: "https://x.com/Mother_Meera",
-    icon: "fa-brands fa-x-twitter",
-    brand: "twitter",
   },
   {
     id: "spotify",
     label: "Spotify – Sacred Music",
     url: "https://open.spotify.com/episode/2SAQwhx9nklSwIX5FVmiEV",
-    icon: "fa-brands fa-spotify",
-    brand: "spotify",
   },
 ];
 

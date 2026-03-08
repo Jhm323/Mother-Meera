@@ -81,7 +81,7 @@ function createLinkTemplate(link, index) {
   return `
     <li>
       <a
-        class="link-btn link-btn--${link.brand}"
+        class="link-btn link-btn--${brand}"
         href="${link.url}"
         target="_blank"
         rel="noopener noreferrer"
@@ -91,7 +91,7 @@ function createLinkTemplate(link, index) {
 
       >
         <span class="link-btn__icon">
-          <i class="fa-solid ${link.icon}"></i>
+          <i class="fa-solid ${icon}"></i>
         </span>
 
         <span class="link-btn__label">
