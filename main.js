@@ -1,5 +1,29 @@
 import { LINKS, PROFILE, SITE } from "./constants.js";
 
+// Platform map
+const PLATFORM_CONFIG = {
+  youtube: {
+    icon: "fa-youtube",
+    brand: "youtube",
+  },
+  facebook: {
+    icon: "fa-facebook-f",
+    brand: "facebook",
+  },
+  instagram: {
+    icon: "fa-instagram",
+    brand: "instagram",
+  },
+  twitter: {
+    icon: "fa-x-twitter",
+    brand: "twitter",
+  },
+  spotify: {
+    icon: "fa-spotify",
+    brand: "spotify",
+  },
+};
+
 // Cache DOM elements
 const avatar = document.getElementById("profile-avatar");
 const avatarFallback = document.querySelector(".avatar-fallback");
@@ -31,8 +55,27 @@ document
   .querySelector('meta[name="description"]')
   .setAttribute("content", SITE.description);
 
+function detectPlatform(url) {
+  const lower = url.toLowerCase();
+
+  if (lower.includes("youtube")) return PLATFORM_CONFIG.youtube;
+  if (lower.includes("facebook")) return PLATFORM_CONFIG.facebook;
+  if (lower.includes("instagram")) return PLATFORM_CONFIG.instagram;
+  if (lower.includes("twitter") || lower.includes("x.com"))
+    return PLATFORM_CONFIG.twitter;
+  if (lower.includes("spotify")) return PLATFORM_CONFIG.spotify;
+
+  return {
+    icon: "fa-globe",
+    brand: "website",
+  };
+}
+
 // Render links
-function createLinkTemplate(link) {
+function createLinkTemplate(link, index) {
+  const delay = index * 0.07;
+  const { icon, brand } = detectPlatform(link.url);
+
   return `
     <li>
       <a
