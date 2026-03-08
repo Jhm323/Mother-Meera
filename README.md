@@ -1,7 +1,7 @@
 # Mother-Meera
 
 A **LinkTree-style landing page** designed to direct social media traffic to the online accounts of **Mother Meera**.  
-The site is intentionally **minimal, fast, and elegant**, focusing on simplicity and clarity.
+The site is intentionally **minimal, fast, and elegant**, focusing on simplicity, clarity, and usability.
 
 Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 
@@ -13,16 +13,17 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 
 - Purple, serene aesthetic reflecting spiritual themes
 - Subtle background elements and gold accent colors
-- Smooth hover interactions and animations
+- Smooth hover interactions and staggered animations for links
 - Glassmorphism-style card layout
 - Fully responsive across **mobile, tablet, and desktop**
 
 ### Easy Link Management
 
-- Links are managed in a single **`constants.js`** file
-- Easily add or remove platforms
-- Clean button layout with platform color accents
+- All links and profile info managed in **`constants.js`**
+- Add or remove platforms easily — platform colors and icons are auto-detected
+- Clean, consistent button layout
 - Font Awesome icon support
+- Staggered animation delays for polished UX
 
 ### Mobile Optimized
 
@@ -30,12 +31,13 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 - Responsive layout for small screens
 - Lightweight and fast loading
 
-### Performance Focused
+### Performance & Reliability
 
-- No frameworks or heavy dependencies
-- Minimal JavaScript
+- Minimal vanilla JavaScript (no frameworks)
 - Optimized CSS
-- Static site — perfect for **GitHub Pages or static hosting**
+- Static site — ideal for **GitHub Pages or other static hosting**
+- Progressive enhancement: static fallback links work **even if JavaScript is disabled**
+- Click analytics support via Plausible or similar service
 
 ---
 
@@ -51,14 +53,13 @@ Built using **HTML, CSS, and JavaScript**, with no frameworks required.
 
 ## Project Structure
 
-```
 Mother-Meera/
 │
-├── index.html        # Main webpage
-├── styles.css        # Styling and layout
-├── constants.js      # Profile info and social links
-└── README.md
-```
+├── index.html # Main webpage with fallback links
+├── styles.css # Styling, layout, and animations
+├── constants.js # Profile info and social links
+├── main.js # Logic: DOM caching, dynamic rendering, analytics, progressive enhancement
+└── README.md # This file
 
 ---
 
@@ -66,7 +67,7 @@ Mother-Meera/
 
 All editable content is stored in **`constants.js`**.
 
-Example structure:
+Example:
 
 ```javascript
 export const PROFILE = {
@@ -83,100 +84,116 @@ export const SITE = {
 };
 
 export const LINKS = [
-  {
-    label: "Official Website",
-    url: "https://mothermeera.com",
-    icon: "fa-globe",
-    brand: "website",
-  },
-  {
-    label: "YouTube",
-    url: "https://youtube.com",
-    icon: "fa-youtube",
-    brand: "youtube",
-  },
+  { label: "Official Website", url: "https://mothermeera.com" },
+  { label: "YouTube", url: "https://youtube.com/@mothermeera" },
+  { label: "Facebook", url: "https://facebook.com/mothermeera" },
+  { label: "Instagram", url: "https://instagram.com/mothermeera" }
 ];
-```
 
-To add a new link:
+Note: You no longer need to manually specify icons or platform colors. The site detects the platform from the URL and applies the correct icon, color, and animation automatically.
 
-1. Add a new object to the `LINKS` array
-2. Set the **label**, **url**, **icon**, and **brand**
-3. The site will automatically render the button.
+Adding a New Link
 
----
+Add a new object to the LINKS array with label and url.
 
-## Customization
+The platform, icon, button color, and animation are automatically applied.
 
-### Change Colors
+Customization
+Change Colors
 
-Edit the CSS variables in `styles.css`.
+Edit CSS variables in styles.css:
 
-Example:
-
-```css
 :root {
   --clr-bg-from: #1a0a2e;
   --clr-bg-to: #2e1a4a;
   --clr-gold: #f0c060;
 }
-```
+Add New Platform Styles
 
-### Add New Platform Styles
+For unsupported platforms, add a new button color:
 
-Add a new button color style:
-
-```css
 .link-btn--tiktok::before {
   background: #000000;
 }
-```
+## Analytics
 
----
+Tracks clicks on social links
+
+Works with Plausible Analytics or a similar service
+
+Implemented with event delegation for performance
+
+Example snippet:
+
+linkList.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+  const label = link.dataset.linkLabel;
+  if (window.plausible) {
+    plausible("Social Link Click", { props: { link: label } });
+  }
+});
+
+## Progressive Enhancement
+
+Static fallback links work even if JavaScript is disabled
+
+When JS loads:
+
+Fallback links are cleared
+
+Animated, styled buttons are rendered dynamically
+
+Icons, platform colors, and staggered animation are applied
+
+Users without JS still have a fully functional link list
 
 ## Deployment
 
-Because the site is **fully static**, it can be deployed easily to:
+Fully static — deployable to:
 
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Any static hosting service
+-GitHub Pages
+
+-Netlify
+
+-Vercel
+
+-Cloudflare Pages
+
+Any static hosting service
 
 Example GitHub Pages workflow:
 
-1. Push the project to a repository
-2. Go to **Settings → Pages**
-3. Select the `main` branch
-4. The site will be live.
+Push the project to a repository
 
----
+Go to Settings → Pages
+
+Select the main branch
+
+Your site is live
 
 ## Accessibility
 
-The project includes several accessibility features:
+Semantic HTML structure
 
-- Semantic HTML structure
-- `aria-label` navigation for links
-- Accessible focus states
-- Descriptive alt text for images
-- Keyboard navigable links
+aria-label navigation for links
 
----
+Focus-visible styling for keyboard users
+
+Descriptive alt text for images
+
+Keyboard navigable links
 
 ## License
 
-This project is provided for informational and educational use.
-
-Content and likeness associated with **Mother Meera** belong to their respective owners.
-
----
+Provided for educational and informational purposes.
+Content and likeness associated with Mother Meera belong to their respective owners.
 
 ## Acknowledgements
 
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-- Inspiration from **LinkTree-style landing pages**
+Font Awesome
 
----
+Google Fonts
+
+Inspired by LinkTree-style landing pages
+```
