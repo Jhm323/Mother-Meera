@@ -2,6 +2,7 @@ import { LINKS, PROFILE, SITE } from "./constants.js";
 
 // Cache DOM elements
 const avatar = document.getElementById("profile-avatar");
+const avatarFallback = document.querySelector(".avatar-fallback");
 const name = document.getElementById("profile-name");
 const tagline = document.getElementById("profile-tagline");
 const linkList = document.getElementById("link-list");
@@ -11,6 +12,11 @@ const year = document.getElementById("year");
 // Set profile information
 avatar.src = PROFILE.avatarUrl;
 avatar.alt = PROFILE.avatarAlt;
+
+avatar.addEventListener("error", () => {
+  avatar.style.display = "none";
+  avatarFallback.style.display = "flex";
+});
 
 name.textContent = PROFILE.name;
 
