@@ -40,6 +40,8 @@ function createLinkTemplate(link) {
         href="${link.url}"
         target="_blank"
         rel="noopener noreferrer"
+                style="animation-delay: ${delay}s"
+
       >
         <span class="link-btn__icon">
           <i class="fa-solid ${link.icon}"></i>
@@ -57,7 +59,9 @@ function createLinkTemplate(link) {
   `;
 }
 
-linkList.innerHTML = LINKS.map(createLinkTemplate).join("");
+linkList.innerHTML = LINKS.map((link, index) =>
+  createLinkTemplate(link, index),
+).join("");
 
 // Set current year
 year.textContent = new Date().getFullYear();

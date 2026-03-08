@@ -323,25 +323,6 @@ body {
   }
 }
 
-.link-list li:nth-child(1) .link-btn {
-  animation-delay: 0.05s;
-}
-.link-list li:nth-child(2) .link-btn {
-  animation-delay: 0.1s;
-}
-.link-list li:nth-child(3) .link-btn {
-  animation-delay: 0.15s;
-}
-.link-list li:nth-child(4) .link-btn {
-  animation-delay: 0.2s;
-}
-.link-list li:nth-child(5) .link-btn {
-  animation-delay: 0.25s;
-}
-.link-list li:nth-child(6) .link-btn {
-  animation-delay: 0.3s;
-}
-
 /* Responsive */
 @media (prefers-reduced-motion: reduce) {
   .link-btn {
